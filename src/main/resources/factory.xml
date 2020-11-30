@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+    default-autowire="byType">
+    <bean id="a"   class="com.example.luban.ioc.module.IndexDaoImpl"></bean>
+    <bean id="c"   class="com.example.luban.ioc.module.IndexDaoImpl1"></bean>
+    <bean id="indexDaoService" class="com.example.luban.ioc.service.IndexDaoService1">
+    <property name="c" ref="a"/>
+</bean>
+
+<!--    <bean id="indexDaoService1" class="com.example.luban.ioc.service.IndexDaoService2">-->
+<!--        <constructor-arg name="c" ref="c"/>-->
+<!--    </bean>-->
+</beans>

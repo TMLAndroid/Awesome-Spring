@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/beans/spring-aop.xsd"
+       default-autowire="byName">
+    <bean  class="com.example.luban.ioc.service.IndexDaoService" autowire="byName" >
+<!--        <constructor-arg name="a" ref="indexDao" ></constructor-arg>-->
+<!--        <property name="c" ref="indexDao"></property>-->
+    </bean>
+    <bean id="a"   class="com.example.luban.ioc.module.IndexDaoImpl"></bean>
+    <bean id="c"   class="com.example.luban.ioc.module.IndexDaoImpl1"></bean>
+    <aop:config>
+        <aop:aspect id="aspect" ref="xmlBean">
+            <aop:pointcut id="allDao" expression="execution(* com.example.luban.aop.dao.*(..))"/>
+            <aop:before method="before" pointcut-ref="allDao"></aop:before>
+        </aop:aspect>
+    </aop:config>
+    <bean id="xmlBean" class="com.example.luban.aop.config.XmlAopBean"></bean>
+</beans>
