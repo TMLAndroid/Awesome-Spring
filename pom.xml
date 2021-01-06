@@ -21,6 +21,7 @@
         <module>kafka-demo</module>
         <module>redis</module>
         <module>mvc</module>
+        <module>wsdemo</module>
     </modules>
 
 

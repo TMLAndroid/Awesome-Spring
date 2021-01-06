@@ -5,7 +5,7 @@ import org.springframework.context.annotation.ComponentScans;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ComponentScan("com.*")
+@ComponentScan("com.example")
 public class ProjectConfig {
 
 

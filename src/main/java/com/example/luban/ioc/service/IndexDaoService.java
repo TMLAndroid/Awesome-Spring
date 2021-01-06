@@ -40,7 +40,7 @@ public  abstract class IndexDaoService   {//implements ApplicationContextAware
         String value = annotation.value();
         System.out.println("注解："+value);
         for (int i = 0; i < 3; i++) {
-            System.out.println(getCC().hashCode());
+            System.out.println("单例依赖多例"+getCC().hashCode());
         }
 
     }
