@@ -21,6 +21,7 @@ public class IndexController {
     public Object map(){
         Map map = new HashMap();
         map.put("name","tmlong");
+        System.out.println("111");
         return map;
     }
 

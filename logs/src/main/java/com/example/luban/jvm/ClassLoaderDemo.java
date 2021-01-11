@@ -43,6 +43,6 @@ public class ClassLoaderDemo {
         Optional<String> optional = Optional.of(s);//避免空指针 减少if else判断
         String s1 = Optional.ofNullable(s).orElse("123");
         String s2 = optional.orElse("aaa");
-        optional.orElseThrow(()-> {throw new NullPointerException();});
+        //optional.orElseThrow(()-> {throw new NullPointerException();});
     }
 }

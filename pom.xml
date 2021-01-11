@@ -22,6 +22,8 @@
         <module>redis</module>
         <module>mvc</module>
         <module>wsdemo</module>
+        <module>my-classloader</module>
+        <module>mybatis-plugin-paging</module>
     </modules>
 
 

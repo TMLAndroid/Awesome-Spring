@@ -1,7 +1,9 @@
-package com.luban;
+package com.luban.config;
 
+import com.luban.plugin.MyPagePlugin;
 import com.luban.register.LubanScanRegister;
 import org.apache.ibatis.logging.log4j.Log4jImpl;
+import org.apache.ibatis.plugin.Interceptor;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Bean;
@@ -22,9 +24,12 @@ public class AppConfig {
     public DataSource dataSource(){
         DriverManagerDataSource driverManagerDataSource = new DriverManagerDataSource();
         driverManagerDataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        driverManagerDataSource.setUsername("root");
-        driverManagerDataSource.setPassword("123");
-        driverManagerDataSource.setUrl("jdbc:mysql://localhost:3306/test");
+        driverManagerDataSource.setUsername("caizhigui");
+        driverManagerDataSource.setPassword("czg@123A");
+        driverManagerDataSource.setUrl("jdbc:mysql://47.98.174.139:3306/guns");
+//        driverManagerDataSource.setUsername("root");
+//        driverManagerDataSource.setPassword("123");
+//        driverManagerDataSource.setUrl("jdbc:mysql://localhost:3306/test");
         return driverManagerDataSource;
     }
 
@@ -37,6 +42,14 @@ public class AppConfig {
         configuration.setLogImpl(Log4jImpl.class);
         sqlSessionFactoryBean.setConfiguration(configuration);
         sqlSessionFactoryBean.setDataSource(dataSource());
+        sqlSessionFactoryBean.setPlugins(new Interceptor[] {getMyPagePlugin()});
         return sqlSessionFactoryBean;
+    }
+
+    public Interceptor getMyPagePlugin(){
+        MyPagePlugin myPagePlugin = new MyPagePlugin();
+        myPagePlugin.setDatabaseType("mysql");
+        myPagePlugin.setPageSqlId(".*ByPage$");
+        return  myPagePlugin;
     }
 }
