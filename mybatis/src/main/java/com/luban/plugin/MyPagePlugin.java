@@ -51,7 +51,7 @@ public class MyPagePlugin implements Interceptor {
 //        delegate.setAccessible(true);
 //        Object o = delegate.get(statementHandler);
 //        o.getClass().getDeclaredField("mappedStatement").
-
+        // MetaObject反射帮助类
         MetaObject metaObject = MetaObject.forObject(
                 statementHandler, SystemMetaObject.DEFAULT_OBJECT_FACTORY,SystemMetaObject.DEFAULT_OBJECT_WRAPPER_FACTORY,new DefaultReflectorFactory());
         String sqlId = (String)metaObject.getValue("delegate.mappedStatement.id");
