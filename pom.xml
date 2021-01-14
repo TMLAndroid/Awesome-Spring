@@ -24,6 +24,8 @@
         <module>wsdemo</module>
         <module>my-classloader</module>
         <module>mybatis-plugin-paging</module>
+        <module>elastic-search</module>
+        <module>elastic-search-starter</module>
     </modules>
 
 
